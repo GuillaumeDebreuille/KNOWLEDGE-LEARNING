@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\LeconRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: LeconRepository::class)]
+class Lecon
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\ManyToOne(inversedBy: 'lecons')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Formation $formation_id = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getFormationId(): ?Formation
+    {
+        return $this->formation_id;
+    }
+
+    public function setFormationId(?Formation $formation_id): static
+    {
+        $this->formation_id = $formation_id;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+}
