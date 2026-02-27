@@ -32,7 +32,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column]
-    private ?bool $isVerified = null;
+    private ?bool $isVerified = false;
+    // The isVerified field indicates whether the user's email has been verified.
+    // null = error state, false = not verified, true = verified.
 
     public function getId(): ?int
     {

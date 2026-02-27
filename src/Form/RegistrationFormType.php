@@ -26,6 +26,18 @@ class RegistrationFormType extends AbstractType
                     ),
                 ],
             ])
+
+
+
+            ->add('isAdmin', CheckboxType::class, [
+                'mapped' => false,
+                'required' => false,
+                'label' => 'Créer comme admin (Test uniquement)',
+            ]) // The user will become an admin. For testing purposes only, 
+            // not recommended for production.
+
+
+
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
