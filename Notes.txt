@@ -1,1 +1,8 @@
-Admin 
+Identifiants TEST :
+
+    Admin :
+        admin1@gmail.com
+        123456
+    User :
+        test2@gmail.com
+        123456
