@@ -32,10 +32,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column]
-    private ?bool $admin = null;
-
-    #[ORM\Column]
-    private ?bool $verified = null;
+    private ?bool $isVerified = null;
 
     public function getId(): ?int
     {
@@ -118,26 +115,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // @deprecated, to be removed when upgrading to Symfony 8
     }
 
-    public function isAdmin(): ?bool
-    {
-        return $this->admin;
-    }
-
-    public function setAdmin(bool $admin): static
-    {
-        $this->admin = $admin;
-
-        return $this;
-    }
-
     public function isVerified(): ?bool
     {
-        return $this->verified;
+        return $this->isVerified;
     }
 
-    public function setVerified(bool $verified): static
+    public function setIsVerified(bool $isVerified): static
     {
-        $this->verified = $verified;
+        $this->isVerified = $isVerified;
 
         return $this;
     }
