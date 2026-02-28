@@ -1,0 +1,36 @@
+{% if app.user %}
+{# if user is logged in #}
+
+    {% if 'ROLE_ADMIN' in app.user.roles %}
+    {# if user is logged in and role = ROLE_ADMIN #}
+
+    <h1>Hello. Admin Mode</h1>
+    <a href="{{ path('app_logout') }}">Déconnexion</a>
+
+    {% elseif 'ROLE_USER' in app.user.roles %}
+    {# if user is logged in and role = ROLE_USER #}
+
+        {% if app.user.isVerified %}
+        {# if user is logged in and role = ROLE_USER and email isVerified = 1 #}
+
+        <h1>Hello. User Mode / Mail Verified</h1>
+        <a href="{{ path('app_logout') }}">Déconnexion</a>
+
+        {% else %}
+        {# if user is logged in and role = ROLE_USER and email isVerified = 0 #}
+
+        <h1>Hello. User Mode / Mail not Verified</h1>
+        <a href="{{ path('app_logout') }}">Déconnexion</a>
+
+        {% endif %}
+
+    {% endif %}
+
+{% else %}
+
+<h1>Hello. No connected Mode</h1>
+<a href="{{ path('app_login') }}">Connexion</a>
+<a href="{{ path('app_register') }}">Inscription</a>
+
+{% endif %}
+    

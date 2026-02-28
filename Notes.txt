@@ -3,6 +3,11 @@ Identifiants TEST :
     Admin :
         admin1@gmail.com
         123456
-    User :
+
+    User isVerified = 1 :
+        test1@gmail.com
+        123456
+
+    User isVerified = 0 :
         test2@gmail.com
         123456

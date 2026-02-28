@@ -1,0 +1,7 @@
+Algo affichage
+
+    Si pas connecté → affichage visiteur
+    Sinon (connecté) :
+        Si admin → affichage admin
+        Sinon si email validé → affichage utilisateur validé
+        Sinon → affichage utilisateur non validé
