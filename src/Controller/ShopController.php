@@ -32,4 +32,32 @@ final class ShopController extends AbstractController
             // allows to use all the data of $lecons in the Twig Shop with 'lecons'
         ]);
     }
+
+
+    #[Route('/shop/add-to-cart', name: 'app_cart_add')]
+    public function addToCart(Request $request, SessionInterface $session): Response
+    // Function to add items to the cart
+
+    {
+        $type = $request->get('type');
+        // 'formation' or 'lecon'
+        $id = $request->get('id');
+        // ID of the item to add
+
+
+        $cart = $session->get('cart', []);
+        // Retrieve the current cart from the session, 
+        // or initialize it as an empty array if it
+
+
+        $cart[] = ['type' => $type, 'id' => $id];
+        // Adding the item to the cart array
+
+
+        $session->set('cart', $cart);
+        // Storing the cart in the session
+        
+
+        return $this->redirectToRoute('app_shop');
+    }
 }
