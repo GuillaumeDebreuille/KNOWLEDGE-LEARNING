@@ -7,6 +7,9 @@
     <h1>Hello. Admin Mode</h1>
     <a href="{{ path('app_home') }}">Accueil</a>
     <a href="{{ path('app_shop') }}">Shop</a>
+    <a href="{{ path('app_home') }}">Mon Panier *</a>
+    <a href="{{ path('app_home') }}">Mon compte *</a>
+    <a href="{{ path('app_home') }}">Admin *</a>
     <a href="{{ path('app_logout') }}">Déconnexion</a>
 
     {% elseif 'ROLE_USER' in app.user.roles %}
@@ -18,6 +21,8 @@
         <h1>Hello. User Mode / Mail Verified</h1>
         <a href="{{ path('app_home') }}">Accueil</a>
         <a href="{{ path('app_shop') }}">Shop</a>
+        <a href="{{ path('app_home') }}">Mon Panier *</a>
+        <a href="{{ path('app_home') }}">Mon compte *</a>
         <a href="{{ path('app_logout') }}">Déconnexion</a>
         {% else %}
         {# if user is logged in and role = ROLE_USER and email isVerified = 0 #}
@@ -25,6 +30,7 @@
         <h1>Hello. User Mode / Mail not Verified</h1>
         <a href="{{ path('app_home') }}">Accueil</a>
         <a href="{{ path('app_shop') }}">Shop</a>
+        <a href="{{ path('app_home') }}">Mon Panier *</a>
         <a href="{{ path('app_logout') }}">Déconnexion</a>
 
         {% endif %}
