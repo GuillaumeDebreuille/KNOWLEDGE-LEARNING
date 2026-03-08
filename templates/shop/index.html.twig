@@ -8,12 +8,22 @@
 {# He can add items to the cart #}
 
     {% for formation in formations %}
+
+        {# displays the training and its lessons #}
         <h2>{{ formation.name }} // {{ formation.id }} </h2>
         <h2> {{ formation.price }} </h2>
+        <a href="{{ path('app_cart_add', {'type': 'formation', 'id': formation.id}) }}">
+            <button>Ajouter toute la formation au panier</button>
+        </a>
+
+        {# displays lessons #}
                 {% for lecon in lecons %}
                     {% if lecon.formationId.id == formation.id %}
                         <h3>{{ lecon.name }} // {{ lecon.id }}</h3>
                         <h3>{{ lecon.price }}</h3>
+                        <a href="{{ path('app_cart_add', {'type': 'lecon', 'id': lecon.id}) }}">
+                            <button>Ajouter la leçon au panier</button>
+                        </a>
                     {% endif %}  
                 {% endfor %}
         <hr>
