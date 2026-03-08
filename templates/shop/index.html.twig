@@ -1,3 +1,19 @@
 {% include 'header.html.twig' %}
 
 <h1> Bienvenue dans le shop ! </h1>
+
+{% if app.user %}
+{# if user is logged in #}
+{# He can add items to the cart #}
+
+    {% for formation in formations %}
+        <h3> {{ formation.name }} </h3>
+        <h3> {{ formation.id }} </h3>
+    {% endfor %}
+
+{% else %}
+{# if user is not logged in #}
+{# He can't add items to the cart #}
+{# He can only see the products #}
+
+{% endif %}
