@@ -9,6 +9,9 @@ use App\Repository\FormationRepository;
 // import FormationRepository to use its methods in ShopController (findAll)
 use App\Repository\LeconRepository;
 // import LeconRepository to use its methods in ShopController (findAll)
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+// import Request and SessionInterface to handle adding items to the cart in ShopController
 
 final class ShopController extends AbstractController
 {
@@ -32,6 +35,9 @@ final class ShopController extends AbstractController
             // allows to use all the data of $lecons in the Twig Shop with 'lecons'
         ]);
     }
+
+
+
 
 
     #[Route('/shop/add-to-cart', name: 'app_cart_add')]

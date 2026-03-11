@@ -5,14 +5,47 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Repository\FormationRepository;
+use App\Repository\LeconRepository;
+// import FormationRepository to use its methods in ShopController (findAll)
+// import LeconRepository to use its methods in ShopController (findAll)
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+// import SessionInterface to handle cart data in the session for ShopController and CartController
 
 final class CartController extends AbstractController
 {
     #[Route('/cart', name: 'app_cart')]
-    public function index(): Response
+    public function index(SessionInterface $session, FormationRepository $formationRepository, LeconRepository $leconRepository): Response
+    // Function to display the cart contents
+    // Adding FormationRepository and LeconRepository to retrieve item details for display in the cart
     {
+
+
+        // exemple of cart data structure in the session:
+        // $cart = [ ['type' => 'formation', 'id' => 1], ['type' => 'lecon', 'id' => 2] ];
+        $cart = $session->get('cart', []);
+        $formations = [];
+        $lecons = [];
+        // Retrieve the cart from the session, or initialize it as an empty array if it doesn't exist
+        foreach ($cart as $item) {
+            if ($item['type'] === 'formation') {
+                $formations[] = $formationRepository->find($item['id']);
+                // Retrieve formation details for each item in the cart
+            } elseif ($item['type'] === 'lecon') {
+                $lecons[] = $leconRepository->find($item['id']);
+                // Retrieve lecon details for each item in the cart
+            }
+        }
+
+
         return $this->render('cart/index.html.twig', [
             'controller_name' => 'CartController',
+            'cart' => $cart,
+            // allows to use all the data of $cart in the Twig Cart with 'cart'
+            'formations' => $formations,
+            // allows to use all the data of $formations in the Twig Shop with 'formations'
+            'lecons' => $lecons,
+            // allows to use all the data of $lecons in the Twig Shop with 'lecons'
         ]);
     }
 }
