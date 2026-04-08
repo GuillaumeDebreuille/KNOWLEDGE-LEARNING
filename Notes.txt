@@ -12,6 +12,8 @@ Identifiants TEST :
         test2@gmail.com
         123456
 
+entity Progress
+
 id (auto-incrément, clé primaire)
 id_user (clé étrangère vers la table users)
 id_lecon (clé étrangère vers la table lecon)

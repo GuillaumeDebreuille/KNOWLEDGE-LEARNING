@@ -28,9 +28,16 @@ class Formation
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $price = null;
 
+    /**
+     * @var Collection<int, Progress>
+     */
+    #[ORM\OneToMany(targetEntity: Progress::class, mappedBy: 'formation')]
+    private Collection $progress;
+
     public function __construct()
     {
         $this->lecons = new ArrayCollection();
+        $this->progress = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -88,6 +95,36 @@ class Formation
     public function setPrice(string $price): static
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Progress>
+     */
+    public function getProgress(): Collection
+    {
+        return $this->progress;
+    }
+
+    public function addProgress(Progress $progress): static
+    {
+        if (!$this->progress->contains($progress)) {
+            $this->progress->add($progress);
+            $progress->setFormation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgress(Progress $progress): static
+    {
+        if ($this->progress->removeElement($progress)) {
+            // set the owning side to null (unless already changed)
+            if ($progress->getFormation() === $this) {
+                $progress->setFormation(null);
+            }
+        }
 
         return $this;
     }
