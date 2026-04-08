@@ -11,3 +11,10 @@ Identifiants TEST :
     User isVerified = 0 :
         test2@gmail.com
         123456
+
+id (auto-incrément, clé primaire)
+id_user (clé étrangère vers la table users)
+id_lecon (clé étrangère vers la table lecon)
+id_formation (clé étrangère vers la table formation)
+lecon_ok (booléen ou tinyint, 1 ou 0)
+formation_ok (booléen ou tinyint, 1 ou 0)
