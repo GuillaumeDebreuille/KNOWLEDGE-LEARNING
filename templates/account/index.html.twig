@@ -4,7 +4,7 @@ Bonjour {{ mail }} !
 <hr><br>
 
 <h3>Vos cours<h3>
-Leçon n°2 : Les accords et les gammes
+
 
 
 {# ---------------------------------------------------------- #}
@@ -33,6 +33,153 @@ Leçon n°2 : Les accords et les gammes
             <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
         {% endif %}
 <hr>
+
+
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 2 #}
+{# ---------------------------------------------------------- #}
+
+<hr>
+<h2>Formation n°2 : Cursus d’initiation au piano</h2>
+        {% if 3 in leconsOwned or 2 in formationsOwned %}
+            <h3 class='lesson_title_owned'>Leçon n°1 : Découverte de l’instrument</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':3}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°1 : Découverte de l’instrument</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
+        {% endif %}<br>
+
+        {% if 4 in leconsOwned or 2 in formationsOwned %} app_lessons
+            <h3 class='lesson_title_owned'>Leçon n°2 : Les accords et les gammes</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':4}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°2 : Les accords et les gammes</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
+        {% endif %}
+<hr>
+
+
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 3 #}
+{# ---------------------------------------------------------- #}
+
+<hr>
+<h2>Formation n°3 : Cursus d’initiation au développement web</h2>
+        {% if 5 in leconsOwned or 3 in formationsOwned %}
+            <h3 class='lesson_title_owned'>Leçon n°1 : Les langages Html et CSS</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':5}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°1 : Les langages Html et CSS</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
+        {% endif %}<br>
+
+        {% if 6 in leconsOwned or 3 in formationsOwned %}
+            <h3 class='lesson_title_owned'>Leçon n°2 : Dynamiser votre site avec Javascript</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':6}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°2 : Dynamiser votre site avec Javascript</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
+        {% endif %}
+<hr>
+
+
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 4 #}
+{# ---------------------------------------------------------- #}
+
+<hr>
+<h2>Formation n°4 : Cursus d’initiation au jardinage</h2>
+        {% if 7 in leconsOwned or 4 in formationsOwned %}
+            <h3 class='lesson_title_owned'>Leçon n°1 : Les outils du jardinier</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':7}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°1 : Les outils du jardinier</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
+        {% endif %}<br>
+
+        {% if 8 in leconsOwned or 4 in formationsOwned %} app_lessons
+            <h3 class='lesson_title_owned'>Leçon n°2 : Jardiner avec la lune</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':8}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°2 : Jardiner avec la lune</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
+        {% endif %}
+<hr>
+
+
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 5 #}
+{# ---------------------------------------------------------- #}
+
+<hr>
+<h2>Formation n°5 : Cursus d’initiation à la cuisine</h2>
+        {% if 9 in leconsOwned or 5 in formationsOwned %}
+            <h3 class='lesson_title_owned'>Leçon n°1 : Les modes de cuisson</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':9}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°1 : Les modes de cuisson</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
+        {% endif %}<br>
+
+        {% if 10 in leconsOwned or 5 in formationsOwned %} app_lessons
+            <h3 class='lesson_title_owned'>Leçon n°2 : Les saveurs</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':10}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°2 : Les saveurs</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
+        {% endif %}
+<hr>
+
+
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 6 #}
+{# ---------------------------------------------------------- #}
+
+<hr>
+<h2>Formation n°6 : Cursus d’initiation à l’art du dressage culinaire</h2>
+        {% if 11 in leconsOwned or 6 in formationsOwned %}
+            <h3 class='lesson_title_owned'>Leçon n°1 : Mettre en œuvre le style dans l’assiette</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':11}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°1 : Mettre en œuvre le style dans l’assiette</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
+        {% endif %}<br>
+
+        {% if 12 in leconsOwned or 6 in formationsOwned %} app_lessons
+            <h3 class='lesson_title_owned'>Leçon n°2 : Harmoniser un repas à quatre plats</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':12}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°2 : Harmoniser un repas à quatre plats</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
+        {% endif %}
+<hr>
+
+
 
 <style>
 

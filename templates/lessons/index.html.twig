@@ -1,7 +1,14 @@
 {% include 'header.html.twig' %}
 
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 1 #}
+{# ---------------------------------------------------------- #}
+
+
 {% if lecon_id == 1 and (1 in leconsOwned or 1 in formationsOwned) %}
-    <h1>Lecon 1</h1>
+    <h1>Formation n°1 : Cursus d’initiation à la guitare</h1>
+    <h2>Leçon n°1 : Découverte de l’instrument</h2>
 
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -21,7 +28,8 @@
 
 
 {% if lecon_id == 2 and (2 in leconsOwned or 1 in formationsOwned) %}
-    <h1>Lecon 2</h1>
+    <h1>Formation n°1 : Cursus d’initiation à la guitare</h1>
+    <h2>Leçon n°2 : Les accords et les gammes</h2>
     
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -38,10 +46,16 @@
     
     <button>Valider la formation</button>
 {% endif %}
-    
+
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 2 #}
+{# ---------------------------------------------------------- #}
+
 
 {% if lecon_id == 3 and (3 in leconsOwned or 2 in formationsOwned) %}
-    <h1>Lecon 3</h1>
+    <h1>Formation n°2 : Cursus d’initiation au piano</h1>
+    <h2>Leçon n°1 : Découverte de l’instrument</h2>
     
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -60,8 +74,9 @@
 {% endif %}
 
 {% if lecon_id == 4 and (4 in leconsOwned or 2 in formationsOwned) %}
-    <h1>Lecon 4</h1>
-    
+    <h1>Formation n°2 : Cursus d’initiation au piano</h1>
+    <h2>Leçon n°2 : Les accords et les gammes</h2>
+
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
     laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -78,8 +93,15 @@
     <button>Valider la formation</button>
 {% endif %}
 
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 3 #}
+{# ---------------------------------------------------------- #}
+
+
 {% if lecon_id == 5 and (5 in leconsOwned or 3 in formationsOwned) %}
-    <h1>Lecon 5</h1>
+    <h1>Formation n°3 : Cursus d’initiation au développement web</h1>
+    <h2>Leçon n°1 : Les langages Html et CSS</h2>
     
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -98,7 +120,8 @@
 {% endif %}
 
 {% if lecon_id == 6 and (6 in leconsOwned or 3 in formationsOwned) %}
-    <h1>Lecon 6</h1>
+    <h1>Formation n°3 : Cursus d’initiation au développement web</h1>
+    <h2>Leçon n°2 : Dynamiser votre site avec Javascript</h2>
     
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -116,8 +139,15 @@
     <button>Valider la formation</button>
 {% endif %}
 
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 4 #}
+{# ---------------------------------------------------------- #}
+
+
 {% if lecon_id == 7 and (7 in leconsOwned or 4 in formationsOwned) %}
-    <h1>Lecon 7</h1>
+    <h1>Formation n°4 : Cursus d’initiation au jardinage</h1>
+    <h2>Leçon n°1 : Les outils du jardinier</h2>
     
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -136,7 +166,8 @@
 {% endif %}
 
 {% if lecon_id == 8 and (8 in leconsOwned or 4 in formationsOwned) %}
-    <h1>Lecon 8</h1>
+    <h1>Formation n°4 : Cursus d’initiation au jardinage</h1>
+    <h2>Leçon n°2 : Jardiner avec la lune</h2>
     
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -154,8 +185,15 @@
     <button>Valider la formation</button>
 {% endif %}
 
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 5 #}
+{# ---------------------------------------------------------- #}
+
+
 {% if lecon_id == 9 and (9 in leconsOwned or 5 in formationsOwned) %}
-    <h1>Lecon 9</h1>
+    <h1>Formation n°5 : Cursus d’initiation à la cuisine</h1>
+    <h2>Leçon n°1 : Les modes de cuisson</h2>
     
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -174,7 +212,8 @@
 {% endif %}
 
 {% if lecon_id == 10 and (10 in leconsOwned or 5 in formationsOwned) %}
-    <h1>Lecon 10</h1>
+    <h1>Formation n°5 : Cursus d’initiation à la cuisine</h1>
+    <h2>Leçon n°2 : Les saveurs</h2>
     
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -192,8 +231,15 @@
     <button>Valider la formation</button>
 {% endif %}
 
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 6 #}
+{# ---------------------------------------------------------- #}
+
+
 {% if lecon_id == 11 and (11 in leconsOwned or 6 in formationsOwned) %}
-    <h1>Lecon 11</h1>
+    <h1>Formation n°6 : Cursus d’initiation à l’art du dressage culinaire</h1>
+    <h2>Leçon n°1 : Mettre en œuvre le style dans l’assiette</h2>
     
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -212,7 +258,8 @@
 {% endif %}
 
 {% if lecon_id == 12 and (12 in leconsOwned or 6 in formationsOwned) %}
-    <h1>Lecon 12</h1>
+    <h1>Formation n°6 : Cursus d’initiation à l’art du dressage culinaire</h1>
+    <h2>Leçon n°2 : Harmoniser un repas à quatre plats</h2>
     
     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -231,3 +278,22 @@
 {% endif %}
 
 
+
+{% if
+    not (
+        (lecon_id == 1 and (1 in leconsOwned or 1 in formationsOwned)) or
+        (lecon_id == 2 and (2 in leconsOwned or 1 in formationsOwned)) or
+        (lecon_id == 3 and (3 in leconsOwned or 2 in formationsOwned)) or
+        (lecon_id == 4 and (4 in leconsOwned or 2 in formationsOwned)) or
+        (lecon_id == 5 and (5 in leconsOwned or 3 in formationsOwned)) or
+        (lecon_id == 6 and (6 in leconsOwned or 3 in formationsOwned)) or
+        (lecon_id == 7 and (7 in leconsOwned or 4 in formationsOwned)) or
+        (lecon_id == 8 and (8 in leconsOwned or 4 in formationsOwned)) or
+        (lecon_id == 9 and (9 in leconsOwned or 5 in formationsOwned)) or
+        (lecon_id == 10 and (10 in leconsOwned or 5 in formationsOwned)) or
+        (lecon_id == 11 and (11 in leconsOwned or 6 in formationsOwned)) or
+        (lecon_id == 12 and (12 in leconsOwned or 6 in formationsOwned))
+    )
+%}
+    <h2>Vous n’avez pas accès à cette leçon.</h2>
+{% endif %}
