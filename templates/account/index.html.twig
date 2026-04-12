@@ -1,3 +1,20 @@
 {% include 'header.html.twig' %}
 
 Bonjour {{ mail }} !
+<hr><br>
+
+<h3> Vos cours disponibles <h3> 
+
+{% for progress in progress %}
+    <div> 
+        {% if progress.lecon %}
+            <div> lecon {{progress.lecon.id}} </div>
+            <div> validé : {{progress.leconValidated}} </div>
+        {% endif %}
+        {% if progress.formation %}
+            <div> formation : {{progress.formation.id}} </div>
+            <div> validé : {{progress.formationValidated}} </div>
+        {% endif %}
+        <br>
+    </div>
+{% endfor %}

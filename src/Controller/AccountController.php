@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Repository\ProgressRepository;
 
 final class AccountController extends AbstractController
 {
@@ -19,6 +20,7 @@ final class AccountController extends AbstractController
         return $this->render('account/index.html.twig', [
             'controller_name' => 'AccountController',
             'mail' => $user->getEmail(),
+            'progress' => $progress
         ]);
     }
 }
