@@ -17,10 +17,28 @@ final class AccountController extends AbstractController
         $progress = $progressRepository->findBy(['user' => $user]);
         // AccountController => progressRepository => findBy() => progress (account)
 
+
+
+        $leconsOwned = [];
+        $formationsOwned = [];
+
+        foreach ($progress as $row) {
+            if ($row -> getLecon()) {
+                $leconsOwned[] = $row -> getLecon() -> getId();
+            }
+            if ($row -> getFormation()) {
+                $formationsOwned[] = $row -> getFormation() -> getId();
+            }
+        }
+
+
+
         return $this->render('account/index.html.twig', [
             'controller_name' => 'AccountController',
             'mail' => $user->getEmail(),
-            'progress' => $progress
+            'progress' => $progress,
+            'leconsOwned' => $leconsOwned,
+            'formationsOwned' => $formationsOwned
         ]);
     }
 }

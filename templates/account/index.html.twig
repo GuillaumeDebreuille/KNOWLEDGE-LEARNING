@@ -3,18 +3,61 @@
 Bonjour {{ mail }} !
 <hr><br>
 
-<h3> Vos cours disponibles <h3> 
+<h3>Vos cours<h3>
+Leçon n°2 : Les accords et les gammes
 
-{% for progress in progress %}
-    <div> 
-        {% if progress.lecon %}
-            <div> lecon {{progress.lecon.id}} </div>
-            <div> validé : {{progress.leconValidated}} </div>
+
+{# ---------------------------------------------------------- #}
+                    {# Traing 1 #}
+{# ---------------------------------------------------------- #}
+
+<hr>
+<h2>Formation n°1 : Cursus d’initiation à la guitare</h2>
+        {% if 1 in leconsOwned or 1 in formationsOwned %}
+            <h3 class='lesson_title_owned'>Leçon n°1 : Découverte de l’instrument</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':1}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°1 : Découverte de l’instrument</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
+        {% endif %}<br>
+
+        {% if 2 in leconsOwned or 1 in formationsOwned %} app_lessons
+            <h3 class='lesson_title_owned'>Leçon n°2 : Les accords et les gammes</h3>
+            <div class='lesson_text_owned'>Vous possédez la leçon</div>
+            <a href="{{ path('app_lessons', {'id':2}) }}" class='lesson_button_owned'>Consulter le cours</a>
+        {% else %}
+            <h3 class='lesson_title_not_owned'>Leçon n°2 : Les accords et les gammes</h3>
+            <div class='lesson_text_not_owned'>Vous n'avez pas acheté cette leçon</div>
+            <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
         {% endif %}
-        {% if progress.formation %}
-            <div> formation : {{progress.formation.id}} </div>
-            <div> validé : {{progress.formationValidated}} </div>
-        {% endif %}
-        <br>
-    </div>
-{% endfor %}
+<hr>
+
+<style>
+
+/* lessons owned */
+
+.lesson_title_owned { 
+    color: green; 
+}
+.lesson_text_owned { 
+    color: green; 
+}
+.lesson_button_owned { 
+    color: green; 
+}
+
+/* lessons NOT owned */
+
+.lesson_title_not_owned { 
+    color: red; 
+}
+.lesson_text_not_owned { 
+    color: red; 
+}
+.lesson_button_not_owned { 
+    color: red; 
+}
+
+</style>
