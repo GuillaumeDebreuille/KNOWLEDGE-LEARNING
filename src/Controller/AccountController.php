@@ -30,6 +30,8 @@ final class AccountController extends AbstractController
                 $formationsOwned[] = $row -> getFormation() -> getId();
             }
         }
+        // allows you to create two lists: a list of lessons owned by the user and a list of courses owned by the user.
+        // These lists will allow lessons and training to be displayed in the Twigs thanks to leconsOwned and formationsOwned
 
 
 
