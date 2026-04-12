@@ -11,11 +11,13 @@ use App\Repository\LeconRepository;
 // import LeconRepository to use its methods in ShopController (findAll)
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 // import SessionInterface to handle cart data in the session for ShopController and CartController
+use App\Repository\ProgressRepository;
+
 
 final class CartController extends AbstractController
 {
     #[Route('/cart', name: 'app_cart')]
-    public function index(SessionInterface $session, FormationRepository $formationRepository, LeconRepository $leconRepository): Response
+    public function index(SessionInterface $session, FormationRepository $formationRepository, LeconRepository $leconRepository, ProgressRepository $progressRepository): Response
     // Function to display the cart contents
     // Adding FormationRepository and LeconRepository to retrieve item details for display in the cart
     {
@@ -38,6 +40,24 @@ final class CartController extends AbstractController
         }
 
 
+
+        $user = $this->getUser();
+        $progress = $progressRepository->findBy(['user' => $user]);
+        // AccountController => progressRepository => findBy() => progress (account)
+
+        $leconsOwned = [];
+
+        foreach ($progress as $row) {
+            if ($row -> getLecon()) {
+                $leconsOwned[] = $row -> getLecon() -> getId();
+            }
+        }
+        // allows you to create two lists: a list of lessons owned by the user and a list of courses owned by the user.
+        // These lists will allow lessons and training to be displayed in the Twigs thanks to leconsOwned and formationsOwned
+        // The goal is to check if the user has already completed a lesson from the training.
+
+
+
         return $this->render('cart/index.html.twig', [
             'controller_name' => 'CartController',
             'cart' => $cart,
@@ -46,6 +66,8 @@ final class CartController extends AbstractController
             // allows to use all the data of $formations in the Twig Shop with 'formations'
             'lecons' => $lecons,
             // allows to use all the data of $lecons in the Twig Shop with 'lecons'
+            'leconsOwned' => $leconsOwned,
+            'allLecons' => $leconRepository->findAll(),
         ]);
     }
 
