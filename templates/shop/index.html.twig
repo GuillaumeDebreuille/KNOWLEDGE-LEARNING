@@ -4,7 +4,7 @@
 
 
 {% if app.user %}
-    {% if app.user.isVerified %}
+    {% if app.user.isVerified or 'ROLE_ADMIN' in app.user.roles %}
     {# if user is logged in and email verified #}
     {# He can add items to the cart #}
 

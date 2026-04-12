@@ -4,6 +4,9 @@
     <div>
         <h2>{{ lecon.name }}</h2>
         <h3>prix : {{ lecon.price }}</h3>
+        <a href="{{ path('app_cart_remove', {'type': 'lecon', 'id': lecon.id}) }}">
+            <button>Retirer du panier</button>
+        </a>
     </div>
 {% endfor %}
 
@@ -11,5 +14,8 @@
     <div>
         <h2>{{ formation.name }}</h2>
         <h3>prix : {{ formation.price }}</h3>
+            <a href="{{ path('app_cart_remove', {'type': 'formation', 'id': formation.id}) }}">
+        <button>Retirer du panier</button>
+        </a>
     </div>
 {% endfor %}

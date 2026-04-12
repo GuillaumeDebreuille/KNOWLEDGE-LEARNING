@@ -48,4 +48,23 @@ final class CartController extends AbstractController
             // allows to use all the data of $lecons in the Twig Shop with 'lecons'
         ]);
     }
+
+
+
+    #[Route('/cart/remove/{type}/{id}', name: 'app_cart_remove')]
+    public function remove(string $type, int $id, SessionInterface $session): Response
+    {
+        $cart = $session->get('cart', []);
+        $cart = array_filter($cart, function ($item) use ($type, $id) {
+            return !($item['type'] === $type && $item['id'] == $id);
+        });
+        // We filter the basket to remove the corresponding item
+
+        $cart = array_values($cart);
+        $session->set('cart', $cart);
+        // We reindex the table to avoid gaps in the keys
+
+
+        return $this->redirectToRoute('app_cart');
+    }
 }
