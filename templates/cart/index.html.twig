@@ -60,3 +60,18 @@
         {% endif %}
     </div>
 {% endfor %}
+
+<br><hr><br>
+
+{% set total = 0 %}
+{% for lecon in lecons %}
+    {% set total = total + lecon.price %}
+{% endfor %}
+{% for formation in formations %}
+    {% set total = total + formation.price %}
+{% endfor %}
+
+<br><hr><br>
+
+<strong>Total à payer : {{ total }} €</strong>
+<a href="{{ path('app_payment') }}">Régler</a>

@@ -1,0 +1,32 @@
+{% include 'header.html.twig' %}
+
+<h1>Paiement</h1>
+
+{% set total = 0 %}
+{% for lecon in lecons %}
+    {% set total = total + lecon.price %}
+{% endfor %}
+{% for formation in formations %}
+    {% set total = total + formation.price %}
+{% endfor %}
+
+<strong>Total à payer : {{ total }} €</strong>
+
+<br><hr><br>
+
+<form action="{{ path('app_payment_validate') }}" method="post">
+
+    <label>Numéro de carte bancaire :</label>
+    <input type="text" name="cb" placeholder="0000 0000 0000 0000" required>
+    <br>
+
+    <label>Date d’expiration :</label>
+    <input type="text" name="exp" placeholder="MM/AA" required>
+    <br>
+
+    <label>Cryptogramme :</label>
+    <input type="text" name="cvv" placeholder="000" required>
+    <br><br>
+
+    <button type="submit">Valider le paiement</button>
+</form>
