@@ -8,7 +8,8 @@
     <a href="{{ path('app_home') }}">Accueil</a>
     <a href="{{ path('app_shop') }}">Shop</a>
     <a href="{{ path('app_cart') }}">Mon Panier</a>
-    <a href="{{ path('app_account') }}">Mon compte</a>
+    <a href="{{ path('app_account') }}">Mes cours</a>
+    <a href="{{ path('app_certification_list') }}">Mes certifications</a>
     <a href="{{ path('app_home') }}">Admin *</a>
     <a href="{{ path('app_logout') }}">Déconnexion</a>
 
@@ -22,7 +23,8 @@
         <a href="{{ path('app_home') }}">Accueil</a>
         <a href="{{ path('app_shop') }}">Shop</a>
         <a href="{{ path('app_cart') }}">Mon Panier</a>
-        <a href="{{ path('app_account') }}">Mon compte</a>
+        <a href="{{ path('app_certification_list') }}">Mes certifications</a>
+        <a href="{{ path('app_account') }}">Mes cours</a>
         <a href="{{ path('app_logout') }}">Déconnexion</a>
         {% else %}
         {# if user is logged in and role = ROLE_USER and email isVerified = 0 #}

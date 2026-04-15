@@ -23,7 +23,7 @@ Bonjour {{ mail }} !
             <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
         {% endif %}<br>
 
-        {% if 2 in leconsOwned or 1 in formationsOwned %} app_lessons
+        {% if 2 in leconsOwned or 1 in formationsOwned %}
             <h3 class='lesson_title_owned'>Leçon n°2 : Les accords et les gammes</h3>
             <div class='lesson_text_owned'>Vous possédez la leçon</div>
             <a href="{{ path('app_lessons', {'id':2}) }}" class='lesson_button_owned'>Consulter le cours</a>
@@ -52,7 +52,7 @@ Bonjour {{ mail }} !
             <a href="{{ path('app_shop') }}" class='lesson_button_not_owned'>Voir le magasin</a>
         {% endif %}<br>
 
-        {% if 4 in leconsOwned or 2 in formationsOwned %} app_lessons
+        {% if 4 in leconsOwned or 2 in formationsOwned %}
             <h3 class='lesson_title_owned'>Leçon n°2 : Les accords et les gammes</h3>
             <div class='lesson_text_owned'>Vous possédez la leçon</div>
             <a href="{{ path('app_lessons', {'id':4}) }}" class='lesson_button_owned'>Consulter le cours</a>
