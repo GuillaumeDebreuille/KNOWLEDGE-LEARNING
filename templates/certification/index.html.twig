@@ -10,71 +10,107 @@
                     {# Traing 1 #}
 {# ---------------------------------------------------------- #}
 
-    <h1>Formation n°1 : Cursus d’initiation à la guitare</h1>
+    <h3>Formation n°1 : Cursus d’initiation à la guitare</h3>
 
-    <h1>Formation n°1 : Cursus d’initiation à la guitare</h1>
-    <h2>Leçon n°1 : Découverte de l’instrument</h2>
+{% if 1 not in certificationOk and 2 not in certificationOk %}
+    <p>Aucune formation validée</p>
+{% endif %}
 
-    <h1>Formation n°1 : Cursus d’initiation à la guitare</h1>
-    <h2>Leçon n°2 : Les accords et les gammes</h2>
+{% if 1 in certificationOk %}
+    <p>Leçon n°1 : Découverte de l’instrument</p>
+{% endif %}
+
+{% if 2 in certificationOk %}
+    <p>Leçon n°2 : Les accords et les gammes</p>
+{% endif %}
 
 {# ---------------------------------------------------------- #}
                     {# Traing 2 #}
 {# ---------------------------------------------------------- #}
 
-    <h1>Formation n°2 : Cursus d’initiation au piano</h1>
+    <h3>Formation n°2 : Cursus d’initiation au piano</h3>
 
-    <h1>Formation n°2 : Cursus d’initiation au piano</h1>
-    <h2>Leçon n°1 : Découverte de l’instrument</h2>
+{% if 3 not in certificationOk and 4 not in certificationOk %}
+    <p>Aucune formation validée</p>
+{% endif %}
 
-    <h1>Formation n°2 : Cursus d’initiation au piano</h1>
-    <h2>Leçon n°2 : Les accords et les gammes</h2>
+{% if 3 in certificationOk %}
+    <p>Leçon n°1 : Découverte de l’instrument</p>
+{% endif %}
+
+{% if 4 in certificationOk %}
+    <p>Leçon n°2 : Les accords et les gammes</p>
+{% endif %}
 
 {# ---------------------------------------------------------- #}
                     {# Traing 3 #}
 {# ---------------------------------------------------------- #}
 
-    <h1>Formation n°3 : Cursus d’initiation au développement web</h1>
+    <h3>Formation n°3 : Cursus d’initiation au développement web</h3>
 
-    <h1>Formation n°3 : Cursus d’initiation au développement web</h1>
-    <h2>Leçon n°1 : Les langages Html et CSS</h2>
+{% if 5 not in certificationOk and 6 not in certificationOk %}
+    <p>Aucune formation validée</p>
+{% endif %}
 
-    <h1>Formation n°3 : Cursus d’initiation au développement web</h1>
-    <h2>Leçon n°2 : Dynamiser votre site avec Javascript</h2>
+{% if 5 in certificationOk %}
+    <p>Leçon n°1 : Les langages Html et CSS</p>
+{% endif %}
+
+{% if 6 in certificationOk %}
+    <p>Leçon n°2 : Dynamiser votre site avec Javascript</p>
+{% endif %}
 
 {# ---------------------------------------------------------- #}
                     {# Traing 4 #}
 {# ---------------------------------------------------------- #}
 
-    <h1>Formation n°4 : Cursus d’initiation au jardinage</h1>
+    <h3>Formation n°4 : Cursus d’initiation au jardinage</h3>
 
-    <h1>Formation n°4 : Cursus d’initiation au jardinage</h1>
-    <h2>Leçon n°1 : Les outils du jardinier</h2>
+{% if 7 not in certificationOk and 8 not in certificationOk %}
+    <p>Aucune formation validée</p>
+{% endif %}
 
-    <h1>Formation n°4 : Cursus d’initiation au jardinage</h1>
-    <h2>Leçon n°2 : Jardiner avec la lune</h2>
+{% if 7 in certificationOk %}
+    <p>Leçon n°1 : Les outils du jardinier</p>
+{% endif %}
+
+{% if 8 in certificationOk %}
+    <p>Leçon n°2 : Jardiner avec la lune</p>
+{% endif %}
 
 {# ---------------------------------------------------------- #}
                     {# Traing 5 #}
 {# ---------------------------------------------------------- #}
 
-    <h1>Formation n°5 : Cursus d’initiation à la cuisine</h1>
+    <h3>Formation n°5 : Cursus d’initiation à la cuisine</h3>
 
-    <h1>Formation n°5 : Cursus d’initiation à la cuisine</h1>
-    <h2>Leçon n°1 : Les modes de cuisson</h2>
+{% if 9 not in certificationOk and 10 not in certificationOk %}
+    <p>Aucune formation validée</p>
+{% endif %}
 
-    <h1>Formation n°5 : Cursus d’initiation à la cuisine</h1>
-    <h2>Leçon n°2 : Les saveurs</h2>
+{% if 9 in certificationOk %}
+    <p>Leçon n°1 : Les modes de cuisson</p>
+{% endif %}
+
+{% if 10 in certificationOk %}
+    <p>Leçon n°2 : Les saveurs</p>
+{% endif %}
 
 {# ---------------------------------------------------------- #}
                     {# Traing 6 #}
 {# ---------------------------------------------------------- #}
 
-    <h1>Formation n°6 : Cursus d’initiation à l’art du dressage culinaire</h1>
+    <h3>Formation n°6 : Cursus d’initiation à l’art du dressage culinaire</h3>
 
-    <h1>Formation n°6 : Cursus d’initiation à l’art du dressage culinaire</h1>
-    <h2>Leçon n°1 : Mettre en œuvre le style dans l’assiette</h2>
+{% if 11 not in certificationOk and 12 not in certificationOk %}
+    <p>Aucune formation validée</p>
+{% endif %}
 
-    <h1>Formation n°6 : Cursus d’initiation à l’art du dressage culinaire</h1>
-    <h2>Leçon n°2 : Harmoniser un repas à quatre plats</h2>
+{% if 11 in certificationOk %}
+    <p>Leçon n°1 : Mettre en œuvre le style dans l’assiette</p>
+{% endif %}
+
+{% if 12 in certificationOk %}
+    <p>Leçon n°2 : Harmoniser un repas à quatre plats</p>
+{% endif %}
 
