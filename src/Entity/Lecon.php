@@ -32,9 +32,16 @@ class Lecon
     #[ORM\OneToMany(targetEntity: Progress::class, mappedBy: 'lecon')]
     private Collection $progress;
 
+    /**
+     * @var Collection<int, Certification>
+     */
+    #[ORM\OneToMany(targetEntity: Certification::class, mappedBy: 'lecon')]
+    private Collection $certifications;
+
     public function __construct()
     {
         $this->progress = new ArrayCollection();
+        $this->certifications = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -102,6 +109,36 @@ class Lecon
             // set the owning side to null (unless already changed)
             if ($progress->getLecon() === $this) {
                 $progress->setLecon(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Certification>
+     */
+    public function getCertifications(): Collection
+    {
+        return $this->certifications;
+    }
+
+    public function addCertification(Certification $certification): static
+    {
+        if (!$this->certifications->contains($certification)) {
+            $this->certifications->add($certification);
+            $certification->setLecon($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCertification(Certification $certification): static
+    {
+        if ($this->certifications->removeElement($certification)) {
+            // set the owning side to null (unless already changed)
+            if ($certification->getLecon() === $this) {
+                $certification->setLecon(null);
             }
         }
 

@@ -42,9 +42,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Progress::class, mappedBy: 'user')]
     private Collection $progress;
 
+    /**
+     * @var Collection<int, Certification>
+     */
+    #[ORM\OneToMany(targetEntity: Certification::class, mappedBy: 'user')]
+    private Collection $certifications;
+
     public function __construct()
     {
         $this->progress = new ArrayCollection();
+        $this->certifications = new ArrayCollection();
     }
     // The isVerified field indicates whether the user's email has been verified.
     // null = error state, false = not verified, true = verified.
@@ -166,6 +173,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($progress->getUser() === $this) {
                 $progress->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Certification>
+     */
+    public function getCertifications(): Collection
+    {
+        return $this->certifications;
+    }
+
+    public function addCertification(Certification $certification): static
+    {
+        if (!$this->certifications->contains($certification)) {
+            $this->certifications->add($certification);
+            $certification->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCertification(Certification $certification): static
+    {
+        if ($this->certifications->removeElement($certification)) {
+            // set the owning side to null (unless already changed)
+            if ($certification->getUser() === $this) {
+                $certification->setUser(null);
             }
         }
 
