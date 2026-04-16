@@ -1,0 +1,79 @@
+{% include 'header.html.twig' %}
+
+{% if app.user %}
+{# if user is logged in #}
+    {% if 'ROLE_ADMIN' in app.user.roles %}
+    {# if user is logged in and role = ROLE_ADMIN #}
+
+
+
+
+
+        <h1>Hello Admin</h1>
+
+
+
+        <h1>Gestion des utilisateurs</h1>
+
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Rôle</th>
+                    <th>isVerified</th>
+                    <th>Actions</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <form method="post" action="{{ path('admin_user_edit', {'id': user.id}) }}">
+                        <td>{{ user.id }}</td>
+                        <td>
+                            <input type="text" name="email" value="{{ user.email }}">
+                        </td>
+                        <td>
+                            <select name="role">
+                                <option value="ROLE_USER" {% if 'ROLE_USER' in user.roles %}selected{% endif %}>ROLE_USER</option>
+                                <option value="ROLE_ADMIN" {% if 'ROLE_ADMIN' in user.roles %}selected{% endif %}>ROLE_ADMIN</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="isVerified">
+                                <option value="1" {% if user.isVerified %}selected{% endif %}>Oui</option>
+                                <option value="0" {% if not user.isVerified %}selected{% endif %}>Non</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="submit">Enregistrer</button>
+                        </td>
+                    </form>
+                    <td>
+                        <form method="post" action="{{ path('admin_user_delete', {'id': user.id}) }}" onsubmit="return confirm('Supprimer cet utilisateur ?');">
+                            <button type="submit" style="color:red;">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+    {% elseif 'ROLE_USER' in app.user.roles %}
+    {# if user is logged in and role = ROLE_USER #}
+    <h1>Espace reservé Admin</h1>
+    {% endif %}
+{% else %}
+    <h1>Espace reservé Admin</h1>
+{% endif %}
