@@ -5,7 +5,7 @@ Projet Symfony – Plateforme e-learning/e-commerce
 ## Installation
 
 1. Cloner le dépôt :
-git clone [URL_DU_DEPOT]
+git clone https://github.com/GuillaumeDebreuille/KNOWLEDGE-LEARNING.git
 
 2. Installer les dépendances :
 composer install
