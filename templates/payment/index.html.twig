@@ -1,32 +1,33 @@
 {% include 'header.html.twig' %}
 
-<h1>Paiement</h1>
+<div class="container mt-4" style="max-width: 400px;">
+    <h2 class="mb-4">Paiement</h2>
 
-{% set total = 0 %}
-{% for lecon in lecons %}
-    {% set total = total + lecon.price %}
-{% endfor %}
-{% for formation in formations %}
-    {% set total = total + formation.price %}
-{% endfor %}
+    {% set total = 0 %}
+    {% for lecon in lecons %}
+        {% set total = total + lecon.price %}
+    {% endfor %}
+    {% for formation in formations %}
+        {% set total = total + formation.price %}
+    {% endfor %}
 
-<strong>Total à payer : {{ total }} €</strong>
+    <div class="alert alert-info text-center">
+        <strong>Total à payer : {{ total }} €</strong>
+    </div>
 
-<br><hr><br>
-
-<form action="{{ path('app_payment_validate') }}" method="post">
-
-    <label>Numéro de carte bancaire :</label>
-    <input type="text" name="cb" placeholder="0000 0000 0000 0000" required>
-    <br>
-
-    <label>Date d’expiration :</label>
-    <input type="text" name="exp" placeholder="MM/AA" required>
-    <br>
-
-    <label>Cryptogramme :</label>
-    <input type="text" name="cvv" placeholder="000" required>
-    <br><br>
-
-    <button type="submit">Valider le paiement</button>
-</form>
+    <form action="{{ path('app_payment_validate') }}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Numéro de carte bancaire</label>
+            <input type="text" name="cb" class="form-control" placeholder="0000 0000 0000 0000" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Date d’expiration</label>
+            <input type="text" name="exp" class="form-control" placeholder="MM/AA" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Cryptogramme</label>
+            <input type="text" name="cvv" class="form-control" placeholder="000" required>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Valider le paiement</button>
+    </form>
+</div>

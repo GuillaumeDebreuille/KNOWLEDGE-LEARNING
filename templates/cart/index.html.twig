@@ -1,77 +1,65 @@
 {% include 'header.html.twig' %}
 
-
-
-{# Displaying lessons in the cart #}
-{% for lecon in lecons %}
-    <div>
-        <h2>{{ lecon.name }}</h2>
-        <h3>prix : {{ lecon.price }}</h3>
-        <a href="{{ path('app_cart_remove', {'type': 'lecon', 'id': lecon.id}) }}">
-            <button>Retirer du panier</button>
-        </a>
-    </div>
-{% endfor %}
-
-{# Displaying training courses in the cart #}
-{% for formation in formations %}
-    <div>
-        <h2>{{ formation.name }}</h2>
-        <h3>prix : {{ formation.price }}</h3>
-        <a href="{{ path('app_cart_remove', {'type': 'formation', 'id': formation.id}) }}">
-            <button>Retirer du panier</button>
-        </a>
-
-
-
-
-
-
-
-        {# Check if a lesson from this training is also in the cart #}
-        {% set hasLeconInCart = false %}
+<div class="container mt-4">
+    <h2>Mon panier</h2>
+    <div class="row">
         {% for lecon in lecons %}
-            {% if lecon.formationId.id == formation.id %}
-                {% set hasLeconInCart = true %}
-            {% endif %}
-        {% endfor %}
-
-        {# Checks if a lesson from this training has already been purchased (BDD) #}
-        {% set hasLeconOwned = false %}
-        {% for lecon in allLecons %}
-            {% if lecon.formationId.id == formation.id and lecon.id in leconsOwned %}
-                {% set hasLeconOwned = true %}
-            {% endif %}
-        {% endfor %}
-
-
-
-        {% if hasLeconInCart %}
-            <div style="color: orange;">
-                Attention : Vous avez ajouté la formation <b>et</b> au moins une leçon de cette formation.<br>
-                Vous risquez de payer deux fois pour une partie du contenu.
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ lecon.name }}</h5>
+                        <p class="card-text">Prix : {{ lecon.price }} €</p>
+                        <a href="{{ path('app_cart_remove', {'type': 'lecon', 'id': lecon.id}) }}" class="btn btn-danger btn-sm">Retirer</a>
+                    </div>
+                </div>
             </div>
-        {% endif %}
-        {% if hasLeconOwned %}
-            <div style="color: orange;">
-                Attention : Vous avez ajouté la formation <b>et</b> au moins une leçon de cette formation a déjà été achetée !<br>
-                Vous risquez de payer deux fois pour une partie du contenu.
+        {% endfor %}
+        {% for formation in formations %}
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="card border-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ formation.name }}</h5>
+                        <p class="card-text">Prix : {{ formation.price }} €</p>
+                        <a href="{{ path('app_cart_remove', {'type': 'formation', 'id': formation.id}) }}" class="btn btn-danger btn-sm">Retirer</a>
+                        {% set hasLeconInCart = false %}
+                        {% for lecon in lecons %}
+                            {% if lecon.formationId.id == formation.id %}
+                                {% set hasLeconInCart = true %}
+                            {% endif %}
+                        {% endfor %}
+                        {% set hasLeconOwned = false %}
+                        {% for lecon in allLecons %}
+                            {% if lecon.formationId.id == formation.id and lecon.id in leconsOwned %}
+                                {% set hasLeconOwned = true %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if hasLeconInCart %}
+                            <div class="alert alert-warning mt-2 p-2">
+                                Attention : Formation + leçon(s) de cette formation dans le panier.
+                            </div>
+                        {% endif %}
+                        {% if hasLeconOwned %}
+                            <div class="alert alert-warning mt-2 p-2">
+                                Attention : Formation + leçon(s) déjà achetée(s) !
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
-        {% endif %}
+        {% endfor %}
     </div>
-{% endfor %}
 
-<br><hr><br>
+    <hr>
+    {% set total = 0 %}
+    {% for lecon in lecons %}
+        {% set total = total + lecon.price %}
+    {% endfor %}
+    {% for formation in formations %}
+        {% set total = total + formation.price %}
+    {% endfor %}
 
-{% set total = 0 %}
-{% for lecon in lecons %}
-    {% set total = total + lecon.price %}
-{% endfor %}
-{% for formation in formations %}
-    {% set total = total + formation.price %}
-{% endfor %}
-
-<br><hr><br>
-
-<strong>Total à payer : {{ total }} €</strong>
-<a href="{{ path('app_payment') }}">Régler</a>
+    <div class="d-flex justify-content-between align-items-center mt-3">
+        <h3>Total à payer : {{ total }} €</h3>
+        <a href="{{ path('app_payment') }}" class="btn btn-success">Régler</a>
+    </div>
+</div>

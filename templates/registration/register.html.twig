@@ -1,8 +1,14 @@
+
+
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Register{% endblock %}
 
 {% block body %}
+{% include 'header.html.twig' %}
+<div class="register_big_block">
+
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
@@ -20,4 +26,35 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+</div>
+
+
+
+<style>
+    .register_big_block {
+        background-color:#82b864;
+        width:50%;
+        height: 300px;
+        margin:auto;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        align-items:center;
+        justify-content:center;
+    }
+    .register_big_block button {
+        background-color:#384050;
+        margin-top:30px;
+        color:white;
+        border-radius:10px;
+    }
+    .register_big_block button:hover {
+        background-color:#00497c;
+    }
+    .register_big_block button:active {
+        background-color:#384050;
+    }
+
+</style>
 {% endblock %}

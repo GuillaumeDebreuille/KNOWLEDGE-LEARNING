@@ -10,32 +10,35 @@
 
         <h1> Bienvenue dans le shop ! </h1>
         <hr>
-
+        <div class="shop_big_bloc">           {# Style 1 ---------------------------------------------- #}
             {% for formation in formations %}
+                <div class="shop_bloc">            {# Style 2 ---------------------------------------------- #}
                 {% if formation.id not in formationsOwned %}
                     {# displays the training and its lessons #}
                     {# "not in formationsOwned" = does not display if the user already has it #}
-                    <h2>{{ formation.name }} // {{ formation.id }} </h2>
-                    <h2> {{ formation.price }} </h2>
+                    <h4>{{ formation.name }} // {{ formation.id }}</h4>
+                    <h4> {{ formation.price }} €</h4>
                     <a href="{{ path('app_cart_add', {'type': 'formation', 'id': formation.id}) }}">
                         <button>Ajouter toute la formation au panier</button>
-                    </a>
+                    </a><hr>
+
                 {% endif %}
 
                 {# displays lessons #}
                         {% for lecon in lecons %}
                             {% if lecon.formationId.id == formation.id and lecon.id not in leconsOwned %}
                             {# "and lecon.id not in leconsOwned" = does not display if the user already has it #}
-                                <h3>{{ lecon.name }} // {{ lecon.id }}</h3>
-                                <h3>{{ lecon.price }}</h3>
+                                <p>{{ lecon.name }} // {{ lecon.id }}</p>
+                                <p>{{ lecon.price }} €</p>
                                 <a href="{{ path('app_cart_add', {'type': 'lecon', 'id': lecon.id}) }}">
                                     <button>Ajouter la leçon au panier</button>
                                 </a>
                             {% endif %}  
                         {% endfor %}
-                <br><hr><br>
+                </div>          {# Style 3 ---------------------------------------------- #}
             {% endfor %}
-
+        </div>       {# Style 4 ---------------------------------------------- #}
+        <br>
 
 
 
@@ -48,22 +51,25 @@
         <h1> Bienvenue dans le shop ! </h1>
         <h3>Pour acheter une formation, merci de vérifier votre Mail</h3>
         <hr>
+        <div class="shop_big_bloc">           {# Style 1 ---------------------------------------------- #}
 
             {% for formation in formations %}
+                <div class="shop_bloc">            {# Style 2 ---------------------------------------------- #}
 
                 {# displays the training and its lessons #}
-                <h2>{{ formation.name }} // {{ formation.id }} </h2>
-                <h2> {{ formation.price }} </h2>
+                <h4>{{ formation.name }} // {{ formation.id }} </h4>
+                <h4> {{ formation.price }} € </h4>
 
                 {# displays lessons #}
                         {% for lecon in lecons %}
                             {% if lecon.formationId.id == formation.id %}
-                                <h3>{{ lecon.name }} // {{ lecon.id }}</h3>
-                                <h3>{{ lecon.price }}</h3>
+                                <p>{{ lecon.name }} // {{ lecon.id }}</p>
+                                <p>{{ lecon.price }} €</p>
                             {% endif %}  
                         {% endfor %}
-                <hr>
+                </div>          {# Style 3 ---------------------------------------------- #}
             {% endfor %}
+        </div>       {# Style 4 ---------------------------------------------- #}
 
 
 
@@ -76,23 +82,72 @@
 
     <h1> Bienvenue dans le shop ! </h1>
     <h3>Pour acheter une formation, merci de créer un compte ou de vous connecter</h3>
-    <hr>
+        <hr>
+        <div class="shop_big_bloc">           {# Style 1 ---------------------------------------------- #}
 
         {% for formation in formations %}
+                <div class="shop_bloc">            {# Style 2 ---------------------------------------------- #}
 
             {# displays the training and its lessons #}
-            <h2>{{ formation.name }} // {{ formation.id }} </h2>
-            <h2> {{ formation.price }} </h2>
+            <h4>{{ formation.name }} // {{ formation.id }} </h4>
+            <h4> {{ formation.price }} € </h4>
 
             {# displays lessons #}
                     {% for lecon in lecons %}
                         {% if lecon.formationId.id == formation.id %}
-                            <h3>{{ lecon.name }} // {{ lecon.id }}</h3>
-                            <h3>{{ lecon.price }}</h3>
+                            <p>{{ lecon.name }} // {{ lecon.id }}</p>
+                            <p>{{ lecon.price }} €</p>
                         {% endif %}  
                     {% endfor %}
-            <hr>
+                </div>          {# Style 3 ---------------------------------------------- #}
         {% endfor %}
+        </div>       {# Style 4 ---------------------------------------------- #}
+
 {% endif %}
 
 
+
+
+<style>
+
+    .shop_big_bloc a {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    .shop_big_bloc h4, .shop_big_bloc p {
+                width: 90%;
+    }
+
+    .shop_big_bloc button {
+        background-color:#0074c7;
+        color:white;
+        height: 120%;
+        border-radius:10px;
+    }
+    .shop_big_bloc button:hover {
+        background-color:#00497c;
+    }
+    .shop_big_bloc button:active {
+        background-color:#384050;
+    }
+
+    .shop_big_bloc {
+        display:flex;
+    }
+    .shop_bloc {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        border:solid #82b864;
+
+        background-color: #82b864;
+        margin: auto;
+        width: 15%;
+        height: 700px;
+        justify-content: center;
+        border-radius:10px;
+
+    }
+
+
+</style>
